@@ -1,91 +1,69 @@
-<div layout="row" flex layout-fill>
-
-  <!-- sidenav for normal viewing -->
-  <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-sidenav-left md-whiteframe-z1">
-    <md-toolbar class="md-whiteframe-z1">
-      <div class="md-toolbar-tools">
-        <h2>Archetypal</h2>
-      </div>
-    </md-toolbar>
-    <md-content layout-padding>
-      <md-list>
-        <md-list-item ng-repeat="item in main.sidenav">
-          <md-button ui-sref="{{item.route}}" class="md-primary">
-            <md-icon>{{item.icon}}</md-icon>
-            <span>{{item.name}}</span>
-          </md-button>
-        </md-list-item>
-      </md-list>
-    </md-content>
-  </md-sidenav>
-
-  <!-- sidenav for small -->
-  <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('sm')" class="md-sidenav-left md-whiteframe-z1 icons">
-    <md-toolbar class="md-whiteframe-z1">
-      <div class="md-toolbar-tools"></div>
-    </md-toolbar>
-    <md-content layout-padding>
-      <md-list>
-        <md-list-item ng-repeat="item in main.sidenav">
-          <md-button ng-repeat="item in main.sidenav" ui-sref="{{item.route}}" class="md-icon-button">
-            <md-icon class="md-primary">{{item.icon}}</md-icon>
-          </md-button>
-        </md-list-item>
-      </md-list>
-    </md-content>
-  </md-sidenav>
-
-  <!-- Upper right preferences menu -->
-  <div flex layout="column">
-    <md-toolbar layout="row" class="md-whiteframe-z1">
-      <div class="md-toolbar-tools">
-        <md-menu>
-          <md-button aria-label="Preferences" ng-click="$mdOpenMenu($event)" class="md-icon-button">
-            <md-icon md-menu-origin>settings</md-icon>
-          </md-button>
-          <md-menu-content width="4">
-            <md-menu-item>
-              <md-button ui-sref="main.profile" class="md-primary">
-                <md-icon md-menu-align-target>person</md-icon>
-                <span>Profile</span>
-              </md-button>
-            </md-menu-item>
-            <md-menu-item>
-              <md-button ng-click="main.about()" class="md-primary">
-                <md-icon md-menu-align-target>info</md-icon>
-                <span>About</span>
-              </md-button>
-            </md-menu-item>
-            <md-menu-divider></md-menu-divider>
-            <md-menu-item>
-              <md-button ng-click="main.signout()" class="md-primary">
-                <span>Sign out</span>
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-      </div>
-    </md-toolbar>
-
-    <!-- Canvas -->
-    <md-content md-scroll-y>
-      <div flex layout-padding ui-view="">
-        <md-card>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">Architypal</span>
-              <span class="md-subhead">Archetypal is an opinionated paradigm for building, deploying and operating highly scalable multi-tenant applications in any cloud.</span>
-            </md-card-title-text>
-            <md-card-title-media>
-              <div class="md-media-lg card-media"></div>
-            </md-card-title-media>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button>Action 1</md-button>
-            <md-button>Action 2</md-button>
-          </md-card-actions>
-        </md-card>
-      </div>
-    </md-content>
+<!-- sidenav for normal viewing -->
+<md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-xs')" class="md-sidenav-left md-whiteframe-z1">
+  <md-toolbar class="md-whiteframe-z1">
+    <div class="md-toolbar-tools" layout="column" layout-align="center center">
+      <h2>Archetypal</h2>
+    </div>
+  </md-toolbar>
+  <md-button ui-sref="{{item.route}}" ng-repeat="item in main.sidenav">
+    <div>
+      <md-icon class='left-nav'>{{item.icon}}</md-icon>
+    </div>
+    <div>{{item.name}}</div>
   </div>
+  </md-button>
+</md-sidenav>
+
+<!-- Upper right preferences menu -->
+<div flex layout="column">
+  <md-toolbar layout="row" class="md-whiteframe-z1">
+    <div class="md-toolbar-tools">
+      <md-menu>
+        <md-button aria-label="Preferences" ng-click="$mdOpenMenu($event)" class="md-icon-button">
+          <md-icon md-menu-origin>settings</md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button ui-sref="main.profile" class="md-primary">
+              <md-icon md-menu-align-target>person</md-icon>
+              <span>Profile</span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="main.about()" class="md-primary">
+              <md-icon md-menu-align-target>info</md-icon>
+              <span>About</span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-divider></md-menu-divider>
+          <md-menu-item>
+            <md-button ng-click="main.signout()" class="md-primary">
+              <span>Sign out</span>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+
+  <!-- Canvas -->
+  <md-content md-scroll-y>
+    <div flex layout-padding ui-view="">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Architypal</span>
+            <span class="md-subhead">Archetypal is an opinionated paradigm for building, deploying and operating highly scalable multi-tenant applications in any cloud.</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
 </div>
